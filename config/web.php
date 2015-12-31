@@ -25,6 +25,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
 //        'user' => [
 //            'identityClass' => 'app\models\User',
 //            'enableAutoLogin' => true,
@@ -32,7 +35,6 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport'=>false,
