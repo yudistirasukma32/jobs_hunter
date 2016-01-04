@@ -61,7 +61,7 @@ AppAsset::register($this);
                             ['label' => 'Sign Up', 'url' => ['/user/register']]);
     } else {
         array_push($navItems,
-            ['label' => 'Jobs', 'url' => ['#']],
+            ['label' => 'Jobs', 'url' => ['/vacancy/index']],
             ['label' => 'Profile', 'url' => ['/user/profile']],
             ['label' => 'Settings', 'url' => ['/user/settings/']],
             ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',

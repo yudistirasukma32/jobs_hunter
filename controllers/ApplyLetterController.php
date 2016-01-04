@@ -3,19 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Ability;
-use app\models\AbilitySearch;
+use app\models\ApplyLetter;
+use app\models\ApplyLetterSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use app\components\AccessRule;
-use app\models\User;
 
 /**
- * AbilityController implements the CRUD actions for Ability model.
+ * ApplyLetterController implements the CRUD actions for ApplyLetter model.
  */
-class AbilityController extends Controller
+class ApplyLetterController extends Controller
 {
     public function behaviors()
     {
@@ -30,13 +27,12 @@ class AbilityController extends Controller
     }
 
     /**
-     * Lists all Ability models.
+     * Lists all ApplyLetter models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AbilitySearch();
-        $searchModel->user_id = Yii::$app->user->identity->id;
+        $searchModel = new ApplyLetterSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +42,7 @@ class AbilityController extends Controller
     }
 
     /**
-     * Displays a single Ability model.
+     * Displays a single ApplyLetter model.
      * @param integer $id
      * @return mixed
      */
@@ -58,13 +54,13 @@ class AbilityController extends Controller
     }
 
     /**
-     * Creates a new Ability model.
+     * Creates a new ApplyLetter model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Ability();
+        $model = new ApplyLetter();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +72,7 @@ class AbilityController extends Controller
     }
 
     /**
-     * Updates an existing Ability model.
+     * Updates an existing ApplyLetter model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -95,7 +91,7 @@ class AbilityController extends Controller
     }
 
     /**
-     * Deletes an existing Ability model.
+     * Deletes an existing ApplyLetter model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -108,15 +104,15 @@ class AbilityController extends Controller
     }
 
     /**
-     * Finds the Ability model based on its primary key value.
+     * Finds the ApplyLetter model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Ability the loaded model
+     * @return ApplyLetter the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Ability::findOne($id)) !== null) {
+        if (($model = ApplyLetter::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
